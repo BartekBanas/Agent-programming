@@ -1,5 +1,4 @@
 // lab01, task 1
-
 public class NumberConverter {
     public static void main(String[] args) {
         printConvertedNumbers(0, 100);

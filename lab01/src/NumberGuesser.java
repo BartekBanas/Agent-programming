@@ -1,7 +1,6 @@
 import java.util.Random;
 import java.util.Scanner;
 
-
 // lab01, task 2
 public class NumberGuesser {
     public static void main(String[] args) {
