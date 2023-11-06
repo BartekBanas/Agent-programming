@@ -1,16 +1,15 @@
 import jade.core.Agent;
+import jade.core.behaviours.CyclicBehaviour;
 
 public class BasicAgent extends Agent {
-    public BasicAgent() {
-        System.out.println("constructor");
-    }
-
+    @Override
     protected void setup() {
-        System.out.println("setup");
+        System.out.println(getLocalName() + " started");
 
-        System.out.println(getLocalName() + " starting up");
+        doDelete();
     }
 
+    @Override
     protected void takeDown() {
         System.out.println(getLocalName() + " is shutting down");
     }
