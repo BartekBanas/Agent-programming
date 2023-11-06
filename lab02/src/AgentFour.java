@@ -1,7 +1,7 @@
 import jade.core.Agent;
 import jade.core.behaviours.CyclicBehaviour;
 
-public class AgentThree extends Agent {
+public class AgentFour extends Agent {
     @Override
     protected void setup() {
         System.out.println(getLocalName() + " started");
