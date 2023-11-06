@@ -1,5 +1,5 @@
 import jade.core.Agent;
-import jade.core.behaviours.Behaviour;
+import jade.core.behaviours.CyclicBehaviour;
 
 public class AgentThree extends Agent {
     @Override
@@ -14,7 +14,7 @@ public class AgentThree extends Agent {
         System.out.println(getLocalName() + " is shutting down");
     }
 
-    private class printingSteps extends Behaviour {
+    private class printingSteps extends CyclicBehaviour {
         private int step = 0;
 
         @Override
@@ -36,11 +36,6 @@ public class AgentThree extends Agent {
                     removeBehaviour(this);
                     break;
             }
-        }
-
-        @Override
-        public boolean done() {
-            return step >= 3;
         }
     }
 }
