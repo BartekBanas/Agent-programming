@@ -6,7 +6,7 @@ public class AgentTwo extends Agent {
     protected void setup() {
         System.out.println(getLocalName() + " started");
 
-        addBehaviour(new PrintCommunicat());
+        addBehaviour(new PrintMessage());
     }
 
     @Override
@@ -14,7 +14,7 @@ public class AgentTwo extends Agent {
         System.out.println(getLocalName() + " is shutting down");
     }
 
-    private static class PrintCommunicat extends OneShotBehaviour {
+    private static class PrintMessage extends OneShotBehaviour {
         @Override
         public void action() {
             System.out.println("Processing...");
