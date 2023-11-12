@@ -49,6 +49,8 @@ public class AgentOneLabTwo extends Agent {
 
             state = randomBool();
 
+            System.out.println("Behaviour B generated state: " + state);
+
             if (state) {
                 addBehaviour(new cBehaviour(state));
             } else {
@@ -89,6 +91,8 @@ public class AgentOneLabTwo extends Agent {
 
             state = randomBool();
 
+            System.out.println("Behaviour D generated state: " + state);
+
             if (state) {
                 addBehaviour(new aBehaviour(state));
             } else {
@@ -97,7 +101,7 @@ public class AgentOneLabTwo extends Agent {
         }
     }
 
-    private class eBehaviour extends OneShotBehaviour {
+    private static class eBehaviour extends OneShotBehaviour {
         private boolean state;
 
         public eBehaviour(boolean input) {
@@ -106,7 +110,7 @@ public class AgentOneLabTwo extends Agent {
 
         @Override
         public void action() {
-            System.out.println("The current state is: " + state);
+            System.out.println("The program ends with state: " + state);
         }
     }
 
