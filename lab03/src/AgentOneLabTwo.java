@@ -32,6 +32,10 @@ public class AgentOneLabTwo extends Agent {
     private static class bBehaviour extends OneShotBehaviour {
         private final boolean state;
 
+        public bBehaviour(boolean input) {
+            state = input;
+        }
+
         public bBehaviour() {
             state = randomBool();
         }
@@ -57,6 +61,10 @@ public class AgentOneLabTwo extends Agent {
 
     private static class dBehaviour extends OneShotBehaviour {
         private final boolean state;
+
+        public dBehaviour(boolean input) {
+            state = input;
+        }
 
         public dBehaviour() {
             state = randomBool();
