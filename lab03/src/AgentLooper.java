@@ -1,10 +1,9 @@
 import jade.core.Agent;
 import jade.core.behaviours.OneShotBehaviour;
-import jade.domain.introspection.AddedBehaviour;
 
 import java.util.Random;
 
-public class AgentOneLabTwo extends Agent {
+public class AgentLooper extends Agent {
     @Override
     protected void setup() {
         System.out.println(getLocalName() + " started");

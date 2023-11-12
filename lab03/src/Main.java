@@ -11,7 +11,7 @@ public class Main {
 
         try {
             // Agent 1
-            AgentController agentController = container.createNewAgent("First Agent", "AgentOneLabTwo", null);
+            AgentController agentController = container.createNewAgent("First Agent", "AgentLooper", null);
 
             agentController.start();
             Thread.sleep(5000);
