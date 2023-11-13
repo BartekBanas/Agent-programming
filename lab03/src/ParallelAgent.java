@@ -3,17 +3,23 @@ import jade.core.behaviours.OneShotBehaviour;
 import jade.core.behaviours.ParallelBehaviour;
 
 public class ParallelAgent extends Agent {
+    private static int step = 0;
+
     @Override
     protected void setup() {
         System.out.println(getLocalName() + " started");
 
-        ParallelBehaviour parallelBehaviour = new ParallelBehaviour(ParallelBehaviour.WHEN_ALL);
-
-        parallelBehaviour.addSubBehaviour(new GenericBehaviour());
-        parallelBehaviour.addSubBehaviour(new GenericBehaviour());
-        parallelBehaviour.addSubBehaviour(new GenericBehaviour());
+        TaskManagerBehaviour parallelBehaviour = new TaskManagerBehaviour();
 
         addBehaviour(parallelBehaviour);
+    }
+
+    private static class TaskManagerBehaviour extends ParallelBehaviour {
+        public TaskManagerBehaviour() {
+            this.addSubBehaviour(new GenericBehaviour());
+            this.addSubBehaviour(new GenericBehaviour());
+            this.addSubBehaviour(new GenericBehaviour());
+        }
     }
 
     @Override
@@ -22,8 +28,6 @@ public class ParallelAgent extends Agent {
     }
 
     private static class GenericBehaviour extends OneShotBehaviour {
-        private int step = 0;
-
         @Override
         public void action() {
             switch (step) {
