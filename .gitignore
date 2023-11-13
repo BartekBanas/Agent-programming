@@ -25,6 +25,7 @@ replay_pid*
 
 ## Idea files
 *\.idea
+*.iml
 
 # Dumb JADE txt files
 **.txt
