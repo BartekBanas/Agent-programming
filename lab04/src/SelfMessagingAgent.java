@@ -19,34 +19,38 @@ public class SelfMessagingAgent extends Agent {
             ACLMessage message = receive();
 
             if (message != null) {
-                switch (message.getPerformative()) {
-                    case ACLMessage.REQUEST:
-                        System.out.println("Received REQUEST message: " + message.getContent());
-                        ACLMessage informReply = message.createReply();
-                        informReply.setPerformative(ACLMessage.INFORM);
-                        informReply.setContent("Request complete");
-                        send(informReply);
-                        break;
-
-                    case ACLMessage.CFP:
-                        System.out.println("Received CFP message: " + message.getContent());
-                        ACLMessage requestReply = message.createReply();
-                        requestReply.setPerformative(ACLMessage.REQUEST);
-                        requestReply.setContent("Try again");
-                        send(requestReply);
-                        break;
-
-                    default:
-                        System.out.println("Received message of unknown type: " + message.getContent());
-                        ACLMessage notUnderstoodReply = message.createReply();
-                        notUnderstoodReply.setPerformative(ACLMessage.NOT_UNDERSTOOD);
-                        notUnderstoodReply.setContent("Instructions unclear");
-                        send(notUnderstoodReply);
-                        break;
-                }
+                handleMessage(message);
             } else {
                 block();
             }
+        }
+    }
+
+    private void handleMessage(ACLMessage message) {
+        switch (message.getPerformative()) {
+            case ACLMessage.REQUEST:
+                System.out.println("Received REQUEST message: " + message.getContent());
+                ACLMessage informReply = message.createReply();
+                informReply.setPerformative(ACLMessage.INFORM);
+                informReply.setContent("Request complete");
+                send(informReply);
+                break;
+
+            case ACLMessage.CFP:
+                System.out.println("Received CFP message: " + message.getContent());
+                ACLMessage requestReply = message.createReply();
+                requestReply.setPerformative(ACLMessage.REQUEST);
+                requestReply.setContent("Try again");
+                send(requestReply);
+                break;
+
+            default:
+                System.out.println("Received message of unknown type: " + message.getContent());
+                ACLMessage notUnderstoodReply = message.createReply();
+                notUnderstoodReply.setPerformative(ACLMessage.NOT_UNDERSTOOD);
+                notUnderstoodReply.setContent("Instructions unclear");
+                send(notUnderstoodReply);
+                break;
         }
     }
 
