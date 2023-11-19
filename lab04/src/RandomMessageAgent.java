@@ -38,16 +38,20 @@ public class RandomMessageAgent extends Agent {
 
     private void sendRandomMessage() {
         Random random = new Random();
-        int randomNumber = random.nextInt(2);
+        int randomNumber = random.nextInt(3);
 
         ACLMessage message;
         if (randomNumber == 0) {
             message = new ACLMessage(ACLMessage.CFP);
             message.setContent("CFP message content");
             message.addReceiver(new AID("Agent", AID.ISLOCALNAME));
-        } else {
+        } else if (randomNumber == 1) {
             message = new ACLMessage(ACLMessage.REQUEST);
             message.setContent("REQUEST message content");
+            message.addReceiver(new AID("Agent", AID.ISLOCALNAME));
+        } else {
+            message = new ACLMessage(ACLMessage.INFORM);
+            message.setContent("Kill Yourself");
             message.addReceiver(new AID("Agent", AID.ISLOCALNAME));
         }
 
