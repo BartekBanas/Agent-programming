@@ -34,7 +34,7 @@ public class LanguageFilterAgent extends Agent {
     private void selfSendMessage() {
         ACLMessage message = new ACLMessage(ACLMessage.REQUEST);
         message.addReceiver(new AID("Agent", AID.ISLOCALNAME));
-        message.setContent("Test message content");
+        message.setContent("Clearly a message in polish");
         message.setLanguage("polish");
 
         send(message);
