@@ -13,6 +13,11 @@ public class RandomMessageAgent extends Agent {
         addBehaviour(new RandomMessageBehaviour());
     }
 
+    @Override
+    protected void takeDown() {
+        System.out.println(getLocalName() + " is shutting down");
+    }
+
     private class RandomMessageBehaviour extends CyclicBehaviour {
         @Override
         public void action() {
